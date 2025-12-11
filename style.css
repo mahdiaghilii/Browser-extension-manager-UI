@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Noto Sans;
+}
+
+body{
+    background-color: hsl(227, 75%, 14%);
+}
+@media screen and (min-width:376px) and (max-width:12440px){
+    #container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        /* margin: 0 5%; */
+    }
+
+    #extentions{
+        /* width: 100%; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .CARD{
+        border: 0.5px solid hsl(0, 0%, 78%);
+        width: 20%;
+
+    }
+
+    .CARD h3{
+        color: hsl(200, 60%, 99%);
+    }
+
+    .CARD p{
+        color: hsl(0, 0%, 78%);
+    }
+
+
+}
+
