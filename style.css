@@ -10,33 +10,97 @@ body{
 }
 @media screen and (min-width:376px) and (max-width:12440px){
     #container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 90%;
-        /* margin: 0 5%; */
+        padding: 0 5%;
     }
 
     #extentions{
-        /* width: 100%; */
+        width:100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .UpDiv{
+        display: flex;
+        height: 50%;
     }
 
     .CARD{
-        border: 0.5px solid hsl(0, 0%, 78%);
-        width: 20%;
-
+        margin: 5px;
+        padding: 15px;
+        width: 30%;
+        height: 150px;
+        background-color: hsl(226, 25%, 17%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
     }
 
     .CARD h3{
         color: hsl(200, 60%, 99%);
+        margin-left: 20px;
+        font-size: 95%;
     }
 
     .CARD p{
         color: hsl(0, 0%, 78%);
+        margin-left: 20px;
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 75%;
     }
 
+    .CARD img{
+        width: 45px;
+    }
+
+    .DownDiv{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .label{
+        width: 35px;
+        height: 20px;
+        background-color: aliceblue;
+        border-radius: 15px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .label::before{
+        position: absolute;
+        content: '';
+        background-color: hsl(3, 86%, 64%);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin: 4%;
+        transition: 0.5s;
+    }
+
+    .checkBox:checked + .label{
+        background-color: black;
+    }
+
+    .checkBox:checked + .label::before{
+        transform: translateX(18px);
+    }
+
+    .checkBox{
+        display: none;
+    }
+
+    .Button{
+        background-color: hsl(226, 25%, 17%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+        color: hsl(217, 61%, 90%);
+        padding: 5px 10px;
+        font-size: 12px;
+    }
 
 }
 
