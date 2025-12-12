@@ -40,9 +40,12 @@ fetch('json/data.json')
         DIV.append(UpDiv)
         Extentions.append(DIV)
 
-        let RemoveButton = document.createElement('div')
+        let RemoveButton = document.createElement('div') //creat removebutton
         RemoveButton.classList.add('Button')
         RemoveButton.innerText = 'Remove'
+        RemoveButton.addEventListener('click' , function(){
+            DIV.style.display = 'none'
+        })
 
         
 
