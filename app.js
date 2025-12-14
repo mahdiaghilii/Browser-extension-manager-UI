@@ -5,7 +5,7 @@ fetch('json/data.json')
 .then(response => response.json())
 .then(res =>{
     res.forEach(element => {
-        console.log(element)
+        // console.log(element)
         let DIV = document.createElement('div')       //creat div for card
         DIV.classList.add('CARD')
 
@@ -63,9 +63,24 @@ fetch('json/data.json')
         DownDiv.append(label)
         DIV.append(DownDiv)
 
+        let test = document.querySelectorAll('.label')
+
 
     });
 })
 
+const AllBtn = document.getElementById('All')
+const ActiveBtn = document.getElementById('Active')
+const InactiveBtn = document.getElementById('Inactive')
 
+ActiveBtn.addEventListener('click' , ActiveBtnHandler)
+
+function ActiveBtnHandler(e){
+    console.log(e.target.innerText)
+    let val = e.target.value
+
+    if(val == 'Active'){
+        
+    }
+}
 
