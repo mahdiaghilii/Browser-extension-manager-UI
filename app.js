@@ -1,4 +1,7 @@
 const Extentions = document.getElementById('extentions')
+const BODY = document.body
+BODY.classList.add('BdDark')
+
 
 
 fetch('json/data.json')
@@ -44,7 +47,7 @@ fetch('json/data.json')
         RemoveButton.classList.add('Button')
         RemoveButton.innerText = 'Remove'
         RemoveButton.addEventListener('click' , function(){
-            DIV.style.display = 'none'
+            DIV.classList.add('removeCard')
         })
 
         
@@ -53,6 +56,7 @@ fetch('json/data.json')
         check.setAttribute('type' , 'checkbox')
         check.setAttribute('id' , `${element.name}`)
         check.classList.add('checkBox')
+        // console.log(check.value)
 
         let label = document.createElement('label')
         label.setAttribute('for'  , `${element.name}`) //creat label
@@ -65,22 +69,50 @@ fetch('json/data.json')
 
         let test = document.querySelectorAll('.label')
 
+        const AllBtn = document.getElementById('All')
+        const ActiveBtn = document.getElementById('Active')
+        const InactiveBtn = document.getElementById('Inactive')
+
+        ActiveBtn.addEventListener('click' , ActiveBtnHandler)
+
+            function ActiveBtnHandler(e){
+            let checking = DIV.childNodes[1].childNodes[1]
+            console.log(checking.checked)
+            if(checking.checked == false){
+                DIV.classList.add('removeCard')
+            }else{
+                DIV.classList.remove('removeCard')
+            }
+
+        }
+
+        InactiveBtn.addEventListener('click' , InactiveBtnBtnHanler)
+
+        function InactiveBtnBtnHanler(e){
+            let checking = DIV.childNodes[1].childNodes[1]
+            if(checking.checked == true){
+                DIV.classList.add('removeCard')
+            }else{
+                DIV.classList.remove('removeCard')
+            }
+        }
+
+        AllBtn.addEventListener('click' , AllBtnBtnHandler)
+        
+        function AllBtnBtnHandler(e){
+            DIV.classList.remove('removeCard')
+        }
+
+        const moodBtn = document.getElementById('moodBtn')
+        moodBtn.addEventListener('click' , moodBtnHandler)
+        
+        
+        
+        function moodBtnHandler(e){
+            DIV.style.backgroundColor = 'hsl(200, 60%, 99%)'
+            BODY.classList.remove('BdDark')
+            BODY.classList.add('BdLight')
+        }
 
     });
 })
-
-const AllBtn = document.getElementById('All')
-const ActiveBtn = document.getElementById('Active')
-const InactiveBtn = document.getElementById('Inactive')
-
-ActiveBtn.addEventListener('click' , ActiveBtnHandler)
-
-function ActiveBtnHandler(e){
-    console.log(e.target.innerText)
-    let val = e.target.value
-
-    if(val == 'Active'){
-        
-    }
-}
-

@@ -5,8 +5,13 @@
     font-family: Noto Sans;
 }
 
-body{
+.BdDark{
     background-image: linear-gradient(to bottom, #040918 0%, #091540 100%);
+    height: 1000px;
+}
+
+.BdLight{
+    background-color: hsl(217, 61%, 90%);
     height: 1000px;
 }
 @media screen and (min-width:376px) and (max-width:12440px){
@@ -17,6 +22,7 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     #extentions{
@@ -184,6 +190,15 @@ body{
         display: flex;
         align-items: center;
     }
+
+    .removeCard{
+        display: none;
+    }
+
+    .add{
+        background-color: aqua;
+    }
+
 
 
 
