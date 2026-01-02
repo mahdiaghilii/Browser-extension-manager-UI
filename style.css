@@ -5,16 +5,18 @@
     font-family: Noto Sans;
 }
 
-.BdDark{
-    background-image: linear-gradient(to bottom, #040918 0%, #091540 100%);
-    height: 1000px;
-}
 
-.BdLight{
-    background-color: hsl(217, 61%, 90%);
-    height: 1000px;
-}
-@media screen and (min-width:376px) and (max-width:12440px){
+@media screen and (min-width:376px) and (max-width:1440px){
+
+    .BdDark{
+        background-image: linear-gradient(to bottom, #040918 0%, #091540 100%);
+        height: 100vh;
+    }
+
+    .BdLight{
+        background-color: hsl(217, 61%, 90%);
+        height: 100vh;
+    }
 
     /* style for extention */
     #container{
@@ -23,6 +25,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: 95vh;
     }
 
     #extentions{
@@ -37,7 +40,9 @@
         height: 50%;
     }
 
-    .CARD{
+    /* Darkmode */
+
+    .DarkCARD{
         margin: 5px;
         padding: 15px;
         width: 32%;
@@ -47,13 +52,14 @@
         border-radius: 15px;
     }
 
-    .CARD h3{
+
+    .DarkCARD h3{
         color: hsl(200, 60%, 99%);
         margin-left: 20px;
         font-size: 95%;
     }
 
-    .CARD p{
+    .DarkCARD p{
         color: hsl(0, 0%, 78%);
         margin-left: 20px;
         margin-top: 5px;
@@ -61,8 +67,72 @@
         font-size: 75%;
     }
 
-    .CARD img{
+    .DarkCARD img{
         width: 45px;
+    }
+
+    
+    .DarkButton{
+        background-color: hsl(226, 25%, 17%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+        color: hsl(217, 61%, 90%);
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .DarkButton:hover{
+        box-shadow: 0 0 1px 2px hsl(3, 71%, 56%);
+        transition: 0.2s;
+    }
+
+    /* Lightmode */
+    
+    .LightCARD{
+        margin: 5px;
+        padding: 15px;
+        width: 32%;
+        height: 150px;
+        background-color: hsl(200, 60%, 99%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+    }
+
+    
+    .LightCARD h3{
+        color: hsl(227, 75%, 14%);
+        margin-left: 20px;
+        font-size: 95%;
+    }
+
+    .LightCARD p{
+        color: hsl(225, 23%, 24%);
+        margin-left: 20px;
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 75%;
+    }
+
+    .LightCARD img{
+        width: 45px;
+    }
+
+    .LightButton{
+        background-color: hsl(200, 60%, 99%);
+        box-shadow: 0 0 1px hsl(227, 75%, 14%);
+        border-radius: 15px;
+        color: hsl(227, 75%, 14%);
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .LightButton:hover{
+        box-shadow: 0 0 1px 2px hsl(3, 71%, 56%);
+        transition: 0.2s;
     }
 
     .DownDiv{
@@ -97,6 +167,11 @@
         background-color: hsl(3, 86%, 64%);
     }
 
+    .checkBox + .label:hover{
+        box-shadow: 0 0 1px 3px hsl(3, 71%, 56%);
+        transition: 0.2s;
+    }
+
     .checkBox:checked + .label::before{
         transform: translateX(14px);
         background-color: hsl(0, 0%, 93%);
@@ -106,19 +181,12 @@
         display: none;
     }
 
-    .Button{
-        background-color: hsl(226, 25%, 17%);
-        box-shadow: 0 0 2px hsl(0, 0%, 78%);
-        border-radius: 15px;
-        color: hsl(217, 61%, 90%);
-        padding: 5px 10px;
-        font-size: 12px;
-        cursor: pointer;
-    }
 
     /* style for extention  */
 
     /* style for EXnav */
+
+    /* Darkmode */
     #Exnav{
         display: flex;
         justify-content: space-between;
@@ -151,6 +219,35 @@
         background-color: hsl(3, 71%, 56%);
         color:hsl(226, 25%, 17%) ;
         box-shadow: 0 0 2px hsl(3, 71%, 56%);
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    /* Lightmode */
+
+    #Exnav #LightRightTitle{
+        color: hsl(269, 75%, 14%);
+    }
+
+    #Exnav #LightLeftTitle{
+        color: hsl(227, 75%, 14%);
+    }
+
+    #LightLeftTitle p{
+        display: inline;
+        padding: 10px 20px;
+        box-shadow: 0 0 2px hsl(200, 60%, 99%);
+        border-radius: 28px;
+        background-color: hsl(200, 60%, 99%);
+        font-weight: 600;
+        margin: 0 3px;
+        cursor: pointer;
+    }
+
+    #LightLeftTitle p:hover{
+        background-color: hsl(200, 60%, 99%);
+        color:hsl(226, 25%, 17%) ;
+        box-shadow: 0 0 1px 3px hsl(3, 71%, 56%);
         font-weight: 600;
         transition: 0.3s;
     }
@@ -189,19 +286,378 @@
         padding: 10px;
         display: flex;
         align-items: center;
+        cursor: pointer;
+    }
+
+    #LightExmood{
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+        padding: 5px;
+        align-items: center;
+        margin: 50px 0 50px 0;
+        background-color: hsl(200, 60%, 99%);
+        border-radius: 15px;
+    }
+
+    #LightExmood #rightLogo{
+        display: flex;
+        align-items: center;
+    }
+
+    #LightExmood #rightLogo img{
+        width: 60px;
+    }
+
+    #LightExmood #rightLogo h3{
+        color: hsl(227, 75%, 14%);
+    }
+
+    #LightExmood #moodBtn{
+        margin-right: 25px;
+        background-color: hsl(0, 0%, 78%);
+        border-radius: 12px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+
+    .removeCard{
+        display: none;
+    }
+}
+
+
+
+@media screen and (min-width:360px) and (max-width:873px){
+
+    .BdDark{
+        background-image: linear-gradient(to bottom, #040918 0%, #091540 100%);
+        height: 130vh;
+    }
+
+    .BdLight{
+        background-color: hsl(217, 61%, 90%);
+        height: 130vh;
+    }
+
+    /* style for extention */
+    #container{
+        padding: 0 5%;
+        margin-top: 500px;
+        height: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    #extentions{
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;    
+    }
+
+    .UpDiv{
+        display: flex;
+        height: 50%;
+    }
+
+    /* Darkmode */
+
+    .DarkCARD{
+        margin: 5px;
+        padding: 15px;
+        width: 90%;
+        height: 150px;
+        background-color: hsl(226, 25%, 17%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+    }
+
+
+    .DarkCARD h3{
+        color: hsl(200, 60%, 99%);
+        margin-left: 20px;
+        font-size: 95%;
+    }
+
+    .DarkCARD p{
+        color: hsl(0, 0%, 78%);
+        margin-left: 20px;
+        margin-top: 5px;
+        font-weight: 800;
+        font-size: 80%;
+    }
+
+    .DarkCARD img{
+        width: 50px;
+    }
+
+    
+    .DarkButton{
+        background-color: hsl(226, 25%, 17%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+        color: hsl(217, 61%, 90%);
+        padding: 4px 8px;
+        font-size: 70%;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .DarkButton:hover{
+        box-shadow: 0 0 1px 2px hsl(3, 71%, 56%);
+        transition: 0.2s;
+    }
+
+    /* Lightmode */
+    
+    .LightCARD{
+        margin: 5px;
+        padding: 15px;
+        width: 45%;
+        height: 150px;
+        background-color: hsl(200, 60%, 99%);
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 15px;
+    }
+
+    
+    .LightCARD h3{
+        color: hsl(227, 75%, 14%);
+        margin-left: 20px;
+        font-size: 65%;
+    }
+
+    .LightCARD p{
+        color: hsl(225, 23%, 24%);
+        margin-left: 20px;
+        margin-top: 5px;
+        font-weight: 800;
+        font-size: 50%;
+    }
+
+    .LightCARD img{
+        width: 50px;
+    }
+
+    .LightButton{
+        background-color: hsl(200, 60%, 99%);
+        box-shadow: 0 0 1px hsl(227, 75%, 14%);
+        border-radius: 15px;
+        color: hsl(227, 75%, 14%);
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .LightButton:hover{
+        box-shadow: 0 0 1px 2px hsl(3, 71%, 56%);
+        transition: 0.2s;
+    }
+
+    .DownDiv{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .label{
+        width: 35px;
+        height: 20px;
+        background-color: hsl(226, 11%, 37%);
+        border-radius: 15px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .label::before{
+        position: absolute;
+        content: '';
+        background-color: hsl(0, 0%, 93%);
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-top: 2px;
+        transition: 0.5s;
+    }
+
+    .checkBox:checked + .label{
+        background-color: hsl(3, 86%, 64%);
+    }
+
+    .checkBox + .label:hover{
+        box-shadow: 0 0 1px 1px hsl(3, 71%, 56%);
+        transition: 0.2s;
+    }
+
+    .checkBox:checked + .label::before{
+        transform: translateX(18px);
+        background-color: hsl(0, 0%, 93%);
+    }
+
+    .checkBox{
+        display: none;
+    }
+
+
+    /* style for extention  */
+
+    /* style for EXnav */
+
+    /* Darkmode */
+    #Exnav{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    #Exnav #RightTitle h1{
+        color: hsl(0, 0%, 93%);
+        font-size: 15px;
+    }
+
+    #Exnav #LeftTitle{
+        color: hsl(0, 0%, 93%);
+    }
+
+    #LeftTitle p{
+        display: inline;
+        padding: 8px 8px;
+        box-shadow: 0 0 2px hsl(0, 0%, 78%);
+        border-radius: 10px;
+        background-color: hsl(226, 25%, 17%);
+        font-weight: 600;
+        margin: 0 3px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    #LeftTitle p:hover{
+        background-color: hsl(3, 71%, 56%);
+        color:hsl(226, 25%, 17%) ;
+        box-shadow: 0 0 2px hsl(3, 71%, 56%);
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    /* Lightmode */
+
+    #Exnav #LightRightTitle h1{
+        color: hsl(269, 75%, 14%);
+        font-size: 15px;
+    }
+
+    #Exnav #LightLeftTitle {
+        color: hsl(227, 75%, 14%);
+    }
+
+    #LightLeftTitle p{
+        display: inline;
+        padding: 8px 8px;
+        box-shadow: 0 0 2px hsl(200, 60%, 99%);
+        border-radius: 10px;
+        background-color: hsl(200, 60%, 99%);
+        font-weight: 600;
+        margin: 0 3px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    #LightLeftTitle p:hover{
+        background-color: hsl(200, 60%, 99%);
+        color:hsl(226, 25%, 17%) ;
+        box-shadow: 0 0 1px 3px hsl(3, 71%, 56%);
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    /* style for EXnav */
+
+    /* style for Exmood */
+
+    #Exmood{
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+        padding: 5px;
+        align-items: center;
+        margin: 20px 0;
+        background-color: hsl(226, 25%, 17%);
+        border-radius: 15px;
+    }
+
+    #Exmood #rightLogo{
+        display: flex;
+        align-items: center;
+    }
+
+    #Exmood #rightLogo img{
+        width: 40px;
+    }
+
+    #Exmood #rightLogo h3{
+        color: white;
+        font-size: 15px;
+    }
+
+    #Exmood #moodBtn img {
+        margin-right: 5px;
+        background-color: hsl(225, 23%, 24%);
+        border-radius: 8px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 25px;
+    }
+
+    #LightExmood{
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+        padding: 5px;
+        align-items: center;
+        margin: 20px 0;
+        background-color: hsl(200, 60%, 99%);
+        border-radius: 15px;
+    }
+
+    #LightExmood #rightLogo{
+        display: flex;
+        align-items: center;
+    }
+
+    #LightExmood #rightLogo img{
+        width: 40px;
+    }
+
+    #LightExmood #rightLogo h3{
+        color: hsl(227, 75%, 14%);
+        font-size: 15px;
+    }
+
+    #LightExmood #moodBtn img {
+        margin-right: 5px;
+        background-color: hsl(0, 0%, 78%);
+        border-radius: 8px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 25px;
     }
 
     .removeCard{
         display: none;
     }
-
-    .add{
-        background-color: aqua;
-    }
-
-
-
-
-
 }
-

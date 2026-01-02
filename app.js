@@ -8,9 +8,10 @@ fetch('json/data.json')
 .then(response => response.json())
 .then(res =>{
     res.forEach(element => {
-        // console.log(element)
+       
         let DIV = document.createElement('div')       //creat div for card
-        DIV.classList.add('CARD')
+        DIV.classList.add('DarkCARD')
+        DIV.classList.add('divs')
 
         let TITLE = document.createElement('h3')      //creat h3 for title
         TITLE.innerText = element.name;
@@ -44,7 +45,7 @@ fetch('json/data.json')
         Extentions.append(DIV)
 
         let RemoveButton = document.createElement('div') //creat removebutton
-        RemoveButton.classList.add('Button')
+        RemoveButton.classList.add('DarkButton')
         RemoveButton.innerText = 'Remove'
         RemoveButton.addEventListener('click' , function(){
             DIV.classList.add('removeCard')
@@ -56,7 +57,7 @@ fetch('json/data.json')
         check.setAttribute('type' , 'checkbox')
         check.setAttribute('id' , `${element.name}`)
         check.classList.add('checkBox')
-        // console.log(check.value)
+        
 
         let label = document.createElement('label')
         label.setAttribute('for'  , `${element.name}`) //creat label
@@ -69,15 +70,15 @@ fetch('json/data.json')
 
         let test = document.querySelectorAll('.label')
 
-        const AllBtn = document.getElementById('All')
+        const AllBtn = document.getElementById('All')           //select fillters button
         const ActiveBtn = document.getElementById('Active')
         const InactiveBtn = document.getElementById('Inactive')
 
-        ActiveBtn.addEventListener('click' , ActiveBtnHandler)
+        ActiveBtn.addEventListener('click' , ActiveBtnHandler)   //event for fillter with activbutton
 
             function ActiveBtnHandler(e){
             let checking = DIV.childNodes[1].childNodes[1]
-            console.log(checking.checked)
+
             if(checking.checked == false){
                 DIV.classList.add('removeCard')
             }else{
@@ -86,7 +87,7 @@ fetch('json/data.json')
 
         }
 
-        InactiveBtn.addEventListener('click' , InactiveBtnBtnHanler)
+        InactiveBtn.addEventListener('click' , InactiveBtnBtnHanler)  //event for fillter with Inactivbutton
 
         function InactiveBtnBtnHanler(e){
             let checking = DIV.childNodes[1].childNodes[1]
@@ -97,22 +98,93 @@ fetch('json/data.json')
             }
         }
 
-        AllBtn.addEventListener('click' , AllBtnBtnHandler)
+        AllBtn.addEventListener('click' , AllBtnBtnHandler)           //event for fillter with allbutton
         
         function AllBtnBtnHandler(e){
             DIV.classList.remove('removeCard')
         }
 
-        const moodBtn = document.getElementById('moodBtn')
-        moodBtn.addEventListener('click' , moodBtnHandler)
-        
-        
-        
-        function moodBtnHandler(e){
-            DIV.style.backgroundColor = 'hsl(200, 60%, 99%)'
-            BODY.classList.remove('BdDark')
-            BODY.classList.add('BdLight')
-        }
-
     });
+
+
+
+        //create mode for all page
+
+        const imgMood = document.getElementById('imgMood')          //select mode icon
+        let DIVS = document.querySelectorAll('.divs')               //select elements for change classes
+        let Buttons = document.querySelectorAll('.DarkButton')      //select remove button for change classes
+        let RightTitleMode = document.getElementById('RightTitle')
+        let LeftTitleMode = document.getElementById('LeftTitle')
+        let EXmode = document.getElementById('Exmood')
+        console.log(EXmode)
+
+       
+
+        imgMood.addEventListener('click' , moodBtnHandler)          //click event for change mode
+
+        function moodBtnHandler(e){
+            console.log(e.target.src)
+            if(e.target.alt === 'LightMood'){                       //change body mode
+                BODY.classList.remove('BdDark')
+                BODY.classList.add('BdLight')
+                imgMood.alt = 'DarkMood'
+                imgMood.removeAttribute('src' , 'assets/images/icon-sun.svg')
+                imgMood.setAttribute('src', 'assets/images/icon-moon.svg')
+            }
+            
+            else if(e.target.alt === 'DarkMood'){
+                BODY.classList.remove('BdLight')
+                BODY.classList.add('BdDark') 
+                imgMood.alt = 'LightMood'
+                imgMood.removeAttribute('src' , 'assets/images/icon-moon.svg')
+                imgMood.setAttribute('src', 'assets/images/icon-sun.svg')
+
+            }
+
+            DIVS.forEach(element => {
+                element.classList.toggle('LightCARD')               //change cards mode
+            });
+
+            Buttons.forEach(element => {
+                
+                element.classList.toggle('LightButton')             //change remove buttons mode
+                element.classList.toggle('DarkButton')
+            });
+
+            if(RightTitleMode.id == 'RightTitle'){
+                RightTitleMode.removeAttribute('id' , 'RightTitle')
+                RightTitleMode.setAttribute('id' , 'LightRightTitle')
+                console.log(RightTitleMode.id)
+            }
+            else if(RightTitleMode.id == 'LightRightTitle'){
+                RightTitleMode.removeAttribute('id' , 'LightRightTitle')
+                RightTitleMode.setAttribute('id' , 'RightTitle')
+            }
+
+            if(LeftTitleMode.id == 'LeftTitle'){
+                LeftTitleMode.removeAttribute('id' , 'LeftTitle')
+                LeftTitleMode.setAttribute('id' , 'LightLeftTitle')
+            }
+            else if(LeftTitleMode.id == 'LightLeftTitle'){
+                LeftTitleMode.removeAttribute('id' , 'LightLeftTitle')
+                LeftTitleMode.setAttribute('id' , 'LeftTitle')
+            }
+
+            if(EXmode.id == 'Exmood'){
+                EXmode.removeAttribute('id' , 'Exmood')
+                EXmode.setAttribute('id' , 'LightExmood')
+            }
+            else if(EXmode.id == 'LightExmood'){
+                EXmode.removeAttribute('id' , 'LightExmood')
+                EXmode.setAttribute('id' , 'Exmood')
+            }
+
+
+            
+        }
+    
 })
+
+
+
+
