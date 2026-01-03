@@ -6,7 +6,7 @@
 }
 
 
-@media screen and (min-width:376px) and (max-width:1440px){
+@media screen and (min-width:376px) and (max-width:1800px){
 
     .BdDark{
         background-image: linear-gradient(to bottom, #040918 0%, #091540 100%);
